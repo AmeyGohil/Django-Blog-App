@@ -4,6 +4,6 @@ from .models import Post
 
 
 def post_list(request):
-    published_posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    unpublished_posts = Post.objects.filter(published_date=None)
-    return render(request, 'blog/post_list.html', {'published_posts':published_posts, 'unpublished_posts':unpublished_posts, })
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+#     unpublished_posts = Post.objects.filter(published_date=None)
+    return render(request, 'blog/post_list.html', {'posts':posts, })
