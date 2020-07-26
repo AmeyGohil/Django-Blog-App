@@ -17,7 +17,7 @@
     <p>{{ post.text|linebreaksbr }}</p>
 </div>
 <hr>
-<a href="{% url 'add_comment_to_post' pk=post.pk %}" class="btn btn-default">Ad Comment</a>
+<a href="{% url 'add_comment_to_post' pk=post.pk %}" class="btn btn-default">Add Comment</a>
 {% for comment in post.comments.all %}
     {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
@@ -34,4 +34,5 @@
     {% endif %}
 {% empty %}
     <p>No comments here yet :(</p>
+{% endfor %}
 {% endblock %}
